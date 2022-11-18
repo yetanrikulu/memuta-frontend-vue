@@ -1,11 +1,11 @@
 <template>
   <div>
-    Deneme
+    SheepDetail
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DenemePage',
+  name: 'SheepDetail',
 }
 </script>

@@ -1,31 +1,45 @@
 <template>
-  <div>
-
-    <v-btn
-        text
-        plain
-        @click="clickHandler"
+  <div class="backups">
+    <div
+        v-for="item in backups"
+        :key=item.Sheep
     >
-      Anasayfa
-    </v-btn>
+      <BackupItem
+          :title=item.title
+          :delete-url=item.deleteUrl
+          :upload-url=item.uploadUrl
+          :download-url=item.downloadUrl
+      />
+    </div>
 
-
-    Hello
   </div>
 </template>
 
 <script>
+import BackupItem from "@/pages/Backup/BackupItem";
+import backups from "@/pages/Backup/backups";
 
 export default {
-  name: 'HelloWorld',
-
-  methods: {
-    clickHandler() {
-      console.log("Deneme sayfasına gidiş")
-      this.$router.push({name:'denemePage'})
+  name: 'BackupPage',
+  data() {
+    return {
+      backups: backups,
     }
-  }
+  },
+  components: {
+    BackupItem
+  },
+  methods: {}
 }
 
 
 </script>
+
+<style lang="scss" scoped>
+.backups{
+  display: flex;
+  justify-content: center;
+  flex-direction: row ;
+  margin: 100px;
+}
+</style>

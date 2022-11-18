@@ -10,19 +10,19 @@
     </v-btn>
 
 
-    Hello
+    Excel PAge
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'ExcelPage',
 
   methods: {
     clickHandler() {
       console.log("Deneme sayfasına gidiş")
-      this.$router.push({name:'denemePage'})
+      this.$router.push({name:'backup-page'})
     }
   }
 }

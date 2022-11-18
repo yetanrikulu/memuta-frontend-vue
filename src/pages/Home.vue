@@ -2,13 +2,25 @@
   <div>
 
     <v-btn
-        text
-        plain
+        color="primary"
         @click="clickHandler"
     >
       Anasayfa
     </v-btn>
 
+    <v-btn
+        depressed
+        color="primary"
+    >
+      Primary
+    </v-btn>
+
+    <v-btn
+        depressed
+        color="error"
+    >
+      Error
+    </v-btn>
 
     Hello
   </div>
@@ -17,7 +29,7 @@
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'HomePage',
 
   methods: {
     clickHandler() {
