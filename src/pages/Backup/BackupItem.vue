@@ -4,7 +4,7 @@
         class="card"
         elevation="3"
     >
-      <v-card-title>{{ title }}</v-card-title>
+      <v-card-title class="card__title">{{ title }}</v-card-title>
 
       <v-btn
           color="primary"
@@ -109,6 +109,12 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 10px;
+
+  &__title {
+    word-break: break-word;
+    text-align: center;
+    height: 100px;
+  }
 }
 
 </style>
