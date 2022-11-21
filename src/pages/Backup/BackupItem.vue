@@ -36,7 +36,6 @@
       >
 
       <v-btn
-          :loading="loading"
           class="ma-1"
           color="error"
           @click="remove"
@@ -50,6 +49,7 @@
 
 <script>
 import backupService from '@/services/backup.service';
+import {mapActions} from "vuex";
 
 export default {
   props: {
@@ -71,25 +71,32 @@ export default {
     },
   },
   methods: {
-    download() {
-      backupService.download(this.downloadUrl)
+    ...mapActions({
+      setLoading: 'utils/setLoading',
+    }),
+
+    async download() {
+      this.setLoading(true);
+      await backupService.download(this.downloadUrl);
+      this.setLoading(false);
     },
-    remove() {
-      backupService.delete(this.deleteUrl)
+    async remove() {
+      this.setLoading(true);
+      await backupService.delete(this.deleteUrl);
+      this.setLoading(false);
     },
 
     onButtonClick() {
-      this.isSelecting = true
       window.addEventListener('focus', () => {
-        this.isSelecting = false
       }, {once: true})
-
-      this.$refs.uploader.click()
+      this.$refs.uploader.click();
     },
-    onFileChanged(e) {
-      this.selectedFile = e.target.files[0]
-      backupService.upload(this.uploadUrl, this.selectedFile)
-      // do something
+    async onFileChanged(e) {
+      this.selectedFile = e.target.files[0];
+      this.setLoading(true);
+      await backupService.upload(this.uploadUrl, this.selectedFile);
+      this.setLoading(false);
+
     }
   }
 
