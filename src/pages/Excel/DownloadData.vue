@@ -4,7 +4,7 @@
     <div class="cage">
       <v-btn
           class="white--text"
-          color="blue darken-1"
+          color="green darken-1"
           v-for="button in sheepExcelServiceDownloadButtons"
           elevation="2"
           :key="button.name"
@@ -15,7 +15,7 @@
 
       <v-btn
           class="white--text"
-          color="blue darken-1"
+          color="green darken-1"
           v-for="button in earringNumberServiceDownloadButtons"
           elevation="2"
           :key="button.name"

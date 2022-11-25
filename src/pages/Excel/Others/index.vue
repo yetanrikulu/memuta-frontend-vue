@@ -8,18 +8,25 @@
           :upload-url="item.uploadUrl"
           :download-url="item.downloadUrl"
       />
+      <HeaderInputDownload
+          v-for="item in headerInputDownloadList"
+          :key="item.title"
+          :title="item.title"
+          :button-download-url="item.buttonDownloadUrl"
+          :input-place-holder="item.inputPlaceHolder"
+      />
     </div>
-
-
   </div>
 </template>
 
 <script>
 import HeaderDownloadTemplateUpload from "@/pages/Excel/Others/HeaderDownloadTemplateUpload";
+import HeaderInputDownload from "@/pages/Excel/Others/HeaderInputDownload";
 
 export default {
   name: 'Operations',
   components: {
+    HeaderInputDownload,
     HeaderDownloadTemplateUpload
   },
   data() {
@@ -45,7 +52,19 @@ export default {
           downloadUrl: "last-two-weight-template",
           uploadUrl: "get-last-two-weight-by-excel"
         },
-      ]
+      ],
+      headerInputDownloadList: [
+        {
+          title: "Tek Koyun Excel Olarak",
+          inputPlaceHolder: "Küpe Numarası",
+          buttonDownloadUrl: "sheep-excel",
+        },
+        {
+          title: "En Az",
+          inputPlaceHolder: "Günlük Hayvan",
+          buttonDownloadUrl: "sheep-excel/at-least-days-sheep",
+        }
+      ],
     }
   }
 }
@@ -59,9 +78,10 @@ export default {
     align-items: center;
     margin: 20px
   }
+
   &__cage {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 10px;
     column-gap: 10px;
     row-gap: 20px;

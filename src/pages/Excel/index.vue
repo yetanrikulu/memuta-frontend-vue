@@ -1,12 +1,8 @@
 <template>
   <div>
-    <div>
-      <Operations/>
-    </div>
+    <Operations/>
     <v-divider/>
-    <div>
-      <DownloadData/>
-    </div>
+    <DownloadData/>
     <v-divider/>
     <Others/>
   </div>
